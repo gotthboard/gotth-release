@@ -1,0 +1,60 @@
+schema_version = 1
+project = "gotth-release"
+profile = "strict"
+active = "extraction"
+
+[settings]
+worktree_root = "worktrees"
+workflow_root = "workflow"
+default_branch = "main"
+
+[toolchain]
+build = "go build ./..."
+test = "go test -mod=readonly -race -cover ./..."
+lint = "go vet -mod=readonly ./..."
+format = "gofmt -w"
+coverage = "go test -mod=readonly -coverprofile=coverage.out ./..."
+
+[coverage]
+map = "workflow/artifacts/global-coverage-map.md"
+profile = "strict"
+block_unresolved_high_risk = true
+exception_expiry_days = 14
+
+[feature.extraction]
+id = "extraction"
+slug = "extraction"
+name = "Extract deterministic release primitives"
+namespace = "release"
+parent = ""
+state = "done"
+risk = "high"
+assurance = "traceable-tests"
+created_at = "2026-09-02T23:52:00Z"
+activated_at = "2026-09-02T23:52:00Z"
+updated_at = "2026-09-03T00:04:00Z"
+completed_at = "2026-09-03T00:04:00Z"
+folder = "workflow/features/extraction"
+worktree = "."
+branch = "main"
+scope = ["Extract identity, clean-checkout, deterministic archive, checksum, and atomic admission mechanics"]
+non_goals = ["Hard-code any consumer's binaries, deployment files, remote publishing, or rollback policy"]
+affected_files = ["**"]
+invariants = ["Same inputs produce byte-identical output", "Partial output is never admitted", "Caller paths cannot escape the archive root"]
+acceptance = ["Format, vet, race, deterministic byte comparison, failure-path, and coverage gates pass"]
+
+[feature.extraction.rollback]
+strategy = "delete_unpublished_repository"
+notes = "Consumers retain their existing release process until explicitly migrated"
+data_loss_risk = false
+requires_migration_down = false
+
+[[feature.extraction.verification]]
+id = "verify"
+kind = "unit"
+command = "make verify"
+required = true
+timeout_seconds = 600
+side_effect = "local_write"
+network = false
+retries = 0
