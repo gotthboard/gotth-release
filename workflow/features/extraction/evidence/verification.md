@@ -12,3 +12,6 @@ Verified on 2026-09-02 with Go `go1.26.6-X:nodwarf5`:
 
 The remaining uncovered branches are filesystem/compressor close failures that
 the public API cannot safely induce without test-only replacement hooks.
+
+Graphify 0.9.32 code-only audit: 34 nodes, 55 directed post-build edges, no
+self-loops, exact duplicate edges, or same-endpoint relation groups.
