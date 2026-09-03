@@ -44,7 +44,8 @@ metadata.
 
 ## Installation, compatibility, and support
 
-Unreleased. The Go API is pre-1.0 and may change until a consumer pins the first compatibility contract.
+Unreleased. The Go API is pre-1.0 and may change until a consumer pins the
+first compatibility contract.
 
 No post-migration version has been tagged. To inspect the current source
 before the first admitted release:
