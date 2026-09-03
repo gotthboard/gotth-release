@@ -15,6 +15,9 @@ func VerifyCleanCheckout(ctx context.Context, directory, commit string, run Runn
 	if ctx == nil || run == nil {
 		return fmt.Errorf("checkout verifier dependencies are required")
 	}
+	if err := ctx.Err(); err != nil {
+		return err
+	}
 	if _, err := ValidateIdentity("0.0.0", commit); err != nil {
 		return err
 	}
@@ -29,6 +32,9 @@ func VerifyCleanCheckout(ctx context.Context, directory, commit string, run Runn
 	if err != nil {
 		return fmt.Errorf("inspect repository state: %w", err)
 	}
+	if err := ctx.Err(); err != nil {
+		return err
+	}
 	if len(status) != 0 {
 		return fmt.Errorf("release repository is dirty")
 	}
@@ -38,6 +44,9 @@ func VerifyCleanCheckout(ctx context.Context, directory, commit string, run Runn
 func commandLine(ctx context.Context, run Runner, directory, name string, arguments ...string) (string, error) {
 	output, err := run(ctx, directory, nil, name, arguments...)
 	if err != nil {
+		return "", err
+	}
+	if err := ctx.Err(); err != nil {
 		return "", err
 	}
 	if len(output) == 0 || output[len(output)-1] != '\n' || strings.Count(string(output), "\n") != 1 {

@@ -38,4 +38,9 @@ func TestVerifyCleanCheckout(t *testing.T) {
 	if err := VerifyCleanCheckout(nil, "/repo", testCommit, runner); err == nil || !strings.Contains(err.Error(), "dependencies") {
 		t.Fatalf("nil context error = %v", err)
 	}
+	cancelled, cancel := context.WithCancel(context.Background())
+	cancel()
+	if err := VerifyCleanCheckout(cancelled, "/repo", testCommit, runner); !errors.Is(err, context.Canceled) {
+		t.Fatalf("cancelled context error = %v", err)
+	}
 }

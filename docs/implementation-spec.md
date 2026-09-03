@@ -23,3 +23,5 @@
 - Checkout verification occurs before snapshotting, after snapshotting, and
   after archive construction. A mismatch, dirty checkout, source change,
   cancellation, timeout, or I/O failure leaves no final output.
+- The caller serializes concurrent writers to checkout, source, and output
+  paths. The library performs bounded verification gates, not process control.

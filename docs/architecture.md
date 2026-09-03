@@ -18,4 +18,6 @@ Source files are streamed. Inline metadata is copied once. No executable is
 retained in memory and no external command is hidden inside archive creation.
 The high-level operation invokes only fixed Git argument vectors without a
 shell. Consumer build, tag, publish, deployment, and rollback commands remain
-outside the library.
+outside the library. Consumers serialize writers to the checkout, selected
+source files, and output parent for the duration of admission. The repeated
+checks detect observed mutation; they are not a fictional cross-process lock.
