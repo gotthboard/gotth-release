@@ -1,5 +1,10 @@
 # gotth-release
 
+> **Distribution:** GitHub is the public clone, Go import, and future release endpoint.
+> Forgejo remains canonical development and the issue/contribution location.
+> See [the distribution contract](docs/distribution.md).
+
+
 `gotth-release` is a Go library for language-neutral release artifacts: exact
 Git and SemVer identity, verified clean-checkout orchestration, deterministic
 normalized tar.gz archives, and SHA-256 admission records.
@@ -36,3 +41,19 @@ its verification gates but does not pretend to own every producer process.
 Extracted from the deterministic artifact builder admitted in GOTTH Board
 1.0.0-alpha.2, then generalized without retaining Go-specific artifact
 metadata.
+
+## Installation, compatibility, and support
+
+Unreleased. The Go API is pre-1.0 and may change until a consumer pins the first compatibility contract.
+
+No post-migration version has been tagged. To inspect the current source
+before the first admitted release:
+
+```sh
+go get github.com/gotthboard/gotth-release@main
+```
+
+The repository has no selected license and no long-term support promise.
+Versioning, release admission, security reporting, and contribution details are
+in [the release policy](docs/RELEASING.md), [security policy](SECURITY.md), and
+[contribution guide](CONTRIBUTING.md).

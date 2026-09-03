@@ -1,4 +1,4 @@
-module git.dannyhunn.com/agents/gotth-release
+module github.com/gotthboard/gotth-release
 
 go 1.26.6
 
