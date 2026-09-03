@@ -1,7 +1,7 @@
 schema_version = 1
 project = "gotth-release"
 profile = "strict"
-active = "extraction"
+active = "generic-verified-admission"
 
 [settings]
 worktree_root = "worktrees"
@@ -50,6 +50,58 @@ data_loss_risk = false
 requires_migration_down = false
 
 [[feature.extraction.verification]]
+id = "verify"
+kind = "unit"
+command = "make verify"
+required = true
+timeout_seconds = 600
+side_effect = "local_write"
+network = false
+retries = 0
+
+[feature.generic-verified-admission]
+id = "generic-verified-admission"
+slug = "generic-verified-admission"
+name = "Generalize metadata and enforce verified release admission"
+namespace = "release"
+parent = ""
+state = "in_progress"
+risk = "high"
+assurance = "traceable-tests"
+created_at = "2026-09-03T00:33:00Z"
+activated_at = "2026-09-03T00:33:00Z"
+updated_at = "2026-09-03T00:33:00Z"
+completed_at = ""
+folder = "workflow/features/generic-verified-admission"
+worktree = "."
+branch = "feature/generic-release-orchestration"
+scope = ["Language-neutral release metadata", "Verified checkout and source snapshot orchestration", "Cancellation, mutation, determinism, and atomic-output tests", "Consumer-facing contracts and evidence"]
+non_goals = ["Run consumer builds", "Tag, push, publish, deploy, or roll back", "Support non-Git source identity", "Add repository-host or CI integration"]
+affected_files = ["README.md", "*.go", "docs/**", "workflow.toml", "workflow/features/generic-verified-admission/**", "workflow/artifacts/global-coverage-map.md"]
+invariants = ["Same inputs produce byte-identical outputs", "No rejected operation admits final output", "Consumer commands and policy stay outside the library", "No shell interprets Git arguments"]
+acceptance = ["Go-specific metadata is removed from the public archive contract", "One recommended API verifies exact clean checkout and unchanged source inputs around archive creation", "Relevant success, negative, mutation, cancellation, and deterministic behavior is covered", "Full format, vet, race, and coverage verification passes"]
+
+[[feature.generic-verified-admission.dependency]]
+id = "extraction"
+type = "prerequisite"
+state = "satisfied"
+evidence = "workflow/features/extraction/evidence/verification.md"
+satisfied_at = "2026-09-03T00:04:00Z"
+source_commit = "da5bddeca9d88195ec416bca8da8eb4bc6105c84"
+
+[feature.generic-verified-admission.rollback]
+strategy = "revert_feature_commit"
+notes = "No version or consumer pin exists; revert the feature commit and retain the extracted primitives"
+data_loss_risk = false
+requires_migration_down = false
+
+[[feature.generic-verified-admission.interface]]
+name = "Go library API"
+kind = "api"
+stability = "unstable-unreleased"
+change = "breaking"
+
+[[feature.generic-verified-admission.verification]]
 id = "verify"
 kind = "unit"
 command = "make verify"
