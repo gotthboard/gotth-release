@@ -2,9 +2,9 @@
 
 ## Exact state
 
-- Structural implementation: `5a4b52c1ede5444c0ebae5f0ff600d2f44ef28bd`.
-- Corrected review candidate: `241407582d1fbb78f31a5504f1b36d6c6e3743ce`.
-- Base/distribution prerequisite: `66c7f6528f766ea7ddedf5247c3f07ecdf83cf7a`.
+- Structural implementation: `c8e9c079c5cea027e42279d063884fc95dfed634`.
+- Corrected review candidate: `e4f312b9d3e1ae7aab93dec6f04d4f07b11a2e00`.
+- Base/distribution prerequisite: `1bc5f22d01a30bb4e2702a91115b0a38598d248f`.
 - Canonical package: `github.com/gotthboard/gotth-release/pkg/release`.
 
 ## Coding-setup admission
@@ -34,10 +34,10 @@
 ## Graph evidence
 
 Graphify 0.9.32, code-only, implementation revision
-`5a4b52c1ede5444c0ebae5f0ff600d2f44ef28bd`:
+`c8e9c079c5cea027e42279d063884fc95dfed634`:
 
-- path: `/home/linus/.cache/openclaw-code-index/gotth-release/5a4b52c1ede5444c0ebae5f0ff600d2f44ef28bd/graphify/graphify-out/graph.json`
-- SHA-256: `205341e40c9c175c6770dd5015ef536fad4baf5413435f1b77be1e3ff87cb478`
+- path: `/home/linus/.cache/openclaw-code-index/gotth-release/c8e9c079c5cea027e42279d063884fc95dfed634/graphify/graphify-out/graph.json`
+- SHA-256: `21ad38f9c3289b76314e7b0198a1772c499586d52b9df0bf6eaee8db71e73412`
 - 82 nodes, 190 edges, 7 communities; zero self-loops, duplicate relations,
   same-endpoint collisions, or dangling endpoints.
 

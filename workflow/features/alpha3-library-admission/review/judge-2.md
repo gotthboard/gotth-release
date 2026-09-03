@@ -1,6 +1,6 @@
 # Judge pass 2 — clean
 
-Reviewed revision: `241407582d1fbb78f31a5504f1b36d6c6e3743ce`.
+Reviewed revision: `e4f312b9d3e1ae7aab93dec6f04d4f07b11a2e00`.
 
 The structure is honest. All production and white-box test files are exact
 100% renames into `pkg/release`; the only new Go file is the outside-package
