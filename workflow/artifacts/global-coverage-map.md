@@ -9,3 +9,6 @@
 | Language-neutral target and toolchain metadata | `archive_test.go` |
 | Verified orchestration and fixed Git command boundary | `verified_test.go` |
 | Source snapshot, mutation, cancellation, and atomic refusal | `verified_test.go` |
+| Canonical package import | `pkg/release/public_api_test.go` |
+
+Implementation tests above now live under `pkg/release/`.

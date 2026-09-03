@@ -6,9 +6,35 @@ Released sections use Semantic Versioning; unreleased work remains under
 
 ## Unreleased
 
-### 2026-09-03 00:42 CDT — Establish GitHub public distribution
+### 2026-09-03 01:04 CDT — Structure and formally admit the alpha.3 library
 
 Commit: current commit; hash assigned by Git after commit
+
+Affected files:
+
+- `pkg/release/`
+- canonical outside-consumer contract test
+- `README.md`, `docs/`, `workflow.toml`, and admission evidence
+
+Explanation:
+
+Move the sole public implementation and its tests out of the repository root,
+leave the root for governance, and add OpenClaw coding-setup traceability,
+runtime, performance, review, and workflow records.
+
+Verification:
+
+- preliminary `go test ./...` passed after the move
+- final format, vet, race, clean-clone, graph, and Judge evidence is recorded in
+  the admission workflow evidence
+
+Risks / non-goals:
+
+- no tag, publication, deployment, consumer build, or release-policy change
+
+### 2026-09-03 00:42 CDT — Establish GitHub public distribution
+
+Commit: `4f33602`
 
 Affected files:
 
@@ -25,7 +51,8 @@ Explanation:
 
 Declare GitHub as the public distribution endpoint while retaining Forgejo as
 canonical development, define maturity and support honestly, and document the
-independent release process. The Go module identity and exact self-imports move to the public GitHub path.
+independent release process. The Go module identity and exact self-imports move
+to the public GitHub path.
 
 Verification:
 

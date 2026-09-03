@@ -20,3 +20,12 @@
    and absence of partial final output.
 5. Admit no build runner, repository host, package manager, deployment, tag,
    publication, or rollback policy.
+
+## Alpha.3 library admission
+
+1. Move the sole public implementation into `pkg/release`; keep the module root
+   for governance only.
+2. Add requirement traceability, runtime-boundary, performance, changelog, and
+   workflow evidence required by the OpenClaw coding setup.
+3. Prove the canonical package compiles for an outside consumer, preserve the
+   deterministic archive contract, and pass two fresh cold Judge reviews.

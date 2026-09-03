@@ -1,7 +1,7 @@
 schema_version = 1
 project = "gotth-release"
 profile = "strict"
-active = "github-distribution"
+active = "alpha3-library-admission"
 
 [settings]
 worktree_root = "worktrees"
@@ -181,4 +181,50 @@ required = true
 timeout_seconds = 300
 side_effect = "external_read"
 network = true
+retries = 0
+
+[feature.alpha3-library-admission]
+id = "alpha3-library-admission"
+slug = "alpha3-library-admission"
+name = "Formally admit the structured alpha.3 library"
+namespace = "release"
+parent = ""
+state = "in_progress"
+risk = "high"
+assurance = "traceable-tests"
+created_at = "2026-09-03T06:04:51Z"
+activated_at = "2026-09-03T06:04:51Z"
+updated_at = "2026-09-03T06:04:51Z"
+folder = "workflow/features/alpha3-library-admission"
+source_path = "pkg/release"
+worktree = "/tmp/gotth-release-coding-setup"
+branch = "feature/openclaw-coding-setup-admission"
+scope = ["Single canonical public-package layout", "Governance-only module root", "Coding-setup traceability, runtime, performance, review, and evidence"]
+non_goals = ["Change archive behavior", "Tag, publish, deploy, or run consumer builds"]
+affected_files = ["*.go", "pkg/release/**", "README.md", "docs/**", "workflow.toml", "workflow/**"]
+invariants = ["Canonical public API remains callable", "Archive bytes and failure behavior remain unchanged", "No external release side effect is introduced"]
+acceptance = ["Canonical consumer, format, vet, race, clean-clone, graph, and two independent Judge gates pass"]
+
+[[feature.alpha3-library-admission.dependency]]
+id = "github-distribution"
+type = "prerequisite"
+state = "satisfied"
+evidence = "workflow/features/github-distribution/evidence/verification.md"
+source_commit = "1bc5f22d01a30bb4e2702a91115b0a38598d248f"
+satisfied_at = "2026-09-03T06:35:13Z"
+
+[feature.alpha3-library-admission.rollback]
+strategy = "revert_admission_commit"
+notes = "No tag or consumer pin exists; revert the structural admission commit"
+data_loss_risk = false
+requires_migration_down = false
+
+[[feature.alpha3-library-admission.verification]]
+id = "verify"
+kind = "unit"
+command = "make verify"
+required = true
+timeout_seconds = 900
+side_effect = "local_write"
+network = false
 retries = 0

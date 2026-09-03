@@ -14,6 +14,17 @@ does not infer a product's binaries, database grants, container files, tags, or
 rollback policy. That boundary is what makes the mechanism reusable without
 turning one application's release procedure into everybody else's accident.
 
+Canonical Go package: `github.com/gotthboard/gotth-release/pkg/release`.
+The module root contains repository governance only; new consumers, including
+GOTTH Board alpha.3, use the canonical package.
+
+Repository layout:
+
+- `pkg/release/` — public implementation and its white-box tests;
+- module root — module metadata and repository governance;
+- `docs/` — requirements, architecture, specification, and admission records;
+- `workflow/` — canonical feature state, review, and verification evidence.
+
 The recommended `BuildVerifiedArchive` entry point verifies the checkout,
 snapshots caller-selected files, builds in private staging, rechecks both the
 repository and source files, and only then admits the output atomically.

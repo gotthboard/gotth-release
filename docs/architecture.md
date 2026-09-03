@@ -1,5 +1,9 @@
 # Architecture
 
+The canonical public package is `pkg/release`. The module root contains no Go
+package. This keeps the consumer contract obvious without dumping mechanisms
+beside repository governance files or maintaining a duplicate public surface.
+
 `ValidateIdentity` admits canonical SemVer and a full lowercase Git object
 name. `VerifyCleanCheckout` checks HEAD and porcelain status through an injected
 bounded runner. `BuildArchive` remains the deterministic low-level primitive:

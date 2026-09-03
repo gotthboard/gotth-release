@@ -1,5 +1,9 @@
 # Implementation specification
 
+- Canonical package: `github.com/gotthboard/gotth-release/pkg/release`.
+- The module root contains no Go package. `pkg/release` is the only public Go
+  implementation and import path.
+
 - Project names are bounded lowercase slugs.
 - Versions are canonical SemVer, including numeric prerelease rules.
 - Commits are exact 40-character lowercase hexadecimal object names.
