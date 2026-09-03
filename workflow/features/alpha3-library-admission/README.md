@@ -1,5 +1,5 @@
 # Alpha.3 library admission
 
-Active structural and formal coding-setup admission for `pkg/release`.
-Completion requires the manifest acceptance gates, verification evidence, and
-two fresh clean Judge reviews at one exact committed state.
+Completed formal coding-setup admission for `pkg/release`. The canonical
+package, runtime and performance boundary, full verification evidence, and two
+clean Judge reviews are recorded below.
